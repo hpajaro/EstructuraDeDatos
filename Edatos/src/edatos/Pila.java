@@ -1,4 +1,4 @@
-package pilaz;
+package edatos;
 
 import java.util.HashSet;
 
@@ -36,8 +36,11 @@ public class Pila <E> {
        }
     }
    public Nodo peek(){
-        
-        return this.getTop();
+        if ( this.top != null)
+            return this.getTop();
+        else
+            return null;
+            
     }
 
     public Nodo getTop() {

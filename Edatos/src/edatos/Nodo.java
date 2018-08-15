@@ -1,5 +1,4 @@
-package pilaz;
-
+package edatos;
 
 public class Nodo <E> {
      private E valor;
