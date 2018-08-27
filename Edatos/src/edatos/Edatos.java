@@ -28,7 +28,7 @@ public class Edatos {
         else
             System.out.println("La expresion no es corresta");*/
         
-      Cola<String> cola = new Cola();
+     /* Cola<String> cola = new Cola();
       cola.enqueue("E20");
       cola.enqueue("E22");
       cola.enqueue("F10");
@@ -37,10 +37,26 @@ public class Edatos {
       cola.display();
       Nodo<String> nodo=cola.dequeue();
      System.out.println( "Se atendió el nodo: "+nodo.getValor());
-     cola.display(); 
+     cola.display();*/
         
+      Persona p1=new Persona("72135240","Hernan Enrique","Pajaro Torres","hpajaro@gmail.com","3003456789");  
+      Persona p2=new Persona("22222","James","Rodriguez","james@gmail.com","3003232789");    
+      Persona p3=new Persona("3333","Pablo Maria ","Perez zapata","pperez@gmail.com","303343671");    
+      Persona p4=new Persona("44444","Hernan Enrique","Pajaro Torres","hpajaro@gmail.com","3053456789");  
+      
+      Contacto miscontactos = new Contacto();
+      miscontactos.adicionar(p1);
+      miscontactos.adicionar(p2);
+      miscontactos.adicionar(p3);
+      miscontactos.adicionar(p4);
+      
+      miscontactos.display();
+      Persona p99=miscontactos.buscar("999");
+      if (p99 != null)
+           System.out.println("Contacto encontrado y es: "+p99.toString());
+      else 
+        System.out.println("Fulano no encontrado o no hay contactos");
     }
-    
     
       public static String getString(String archivo) {
         String cadena="";
