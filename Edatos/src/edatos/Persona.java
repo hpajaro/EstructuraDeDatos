@@ -7,6 +7,7 @@ public class Persona {
     private String correo;
     private String celular;
 
+    public Persona(){}
     public Persona(String cedula, String nombres, String apellidos, String correo, String celular) {
         this.cedula = cedula;
         this.nombres=nombres;

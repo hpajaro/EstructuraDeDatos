@@ -5,6 +5,8 @@
  */
 package edatos;
 
+import java.awt.Dimension;
+
 /**
  *
  * @author hpajaro
@@ -43,6 +45,11 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         btnCrearContacto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edatos/nuevo.png"))); // NOI18N
         btnCrearContacto.setText("Crear Contacto");
+        btnCrearContacto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearContactoActionPerformed(evt);
+            }
+        });
         PanelHeader.add(btnCrearContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         txtCedula1.setPreferredSize(new java.awt.Dimension(6, 24));
@@ -110,6 +117,18 @@ public class frmPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnCrearContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearContactoActionPerformed
+        // TODO add your handling code here:
+        frmContacto frmcontacto = new frmContacto();
+        Dimension escritorioSize=this.PanelEscriorio.getSize();
+        Dimension frmcontactoSize=frmcontacto.getSize();
+        frmcontacto.setLocation((escritorioSize.width -frmcontactoSize.width)/2, (escritorioSize.height -frmcontactoSize.height)/2);    
+        
+        this.PanelEscriorio.add(frmcontacto);
+        frmcontacto.show();
+        
+    }//GEN-LAST:event_btnCrearContactoActionPerformed
 
     /**
      * @param args the command line arguments
