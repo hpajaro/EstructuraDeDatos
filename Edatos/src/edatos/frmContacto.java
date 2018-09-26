@@ -1,13 +1,20 @@
 
 package edatos;
 
+import com.google.gson.Gson;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Hashtable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class frmContacto extends javax.swing.JInternalFrame {
-    
-    private  static Hashtable<String,Persona> contactos =new Hashtable();
-    public frmContacto() {
+    private Contactos1 contactos;
+    //private static final Hashtable<String,Persona> contactos =new Hashtable();
+    public frmContacto(Contactos1 contactos ) {
         initComponents();
+        this.contactos=contactos;
     }
 
 
@@ -165,12 +172,33 @@ public class frmContacto extends javax.swing.JInternalFrame {
         p.setCorreo(this.txtCorreo.getText());
         p.setCelular(this.txtCelular.getText());
         contactos.put(this.txtCedula.getText(),p);
+        serializar();
         System.out.println("ok");
         this.dispose();
                 
     }//GEN-LAST:event_btnAcentarActionPerformed
 
-
+ private void serializar(){
+     FileWriter filew= null;
+        try {
+            Gson gson= new Gson();
+            String scontactos ="{ \"tareas\":"+gson.toJson(this.contactos)+"}";
+            File archivo = new File("datos.json");
+            filew = new FileWriter(archivo,false);
+            filew.write(scontactos);
+            filew.flush();
+            filew.close();
+        } catch (IOException ex) {
+            Logger.getLogger(frmContacto.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                filew.close();
+            } catch (IOException ex) {
+                Logger.getLogger(frmContacto.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+   }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAcentar;
     private javax.swing.JButton btnCancelar;
